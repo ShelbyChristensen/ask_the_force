@@ -31,7 +31,16 @@ function App() {
   return (
     <div className="App">
       <h1>Ask the Force</h1>
-      <p>Receive advice from beyond.</p>
+
+      {loading ? (
+        <p>The Force is listening...</p>
+      ) : error ? (
+        <p>{error}</p>
+      ) : (
+        <p>{advice}</p>
+      )}
+
+      <button onClick={fetchAdvice}>Ask Again</button>
     </div>
   );
 }
