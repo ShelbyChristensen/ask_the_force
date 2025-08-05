@@ -6,6 +6,8 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
+  const comfortingWords = ["love", "care", "kind", "listen", "peace", "help", "trust", "heart", "believe", "gentle", "hope"];
+
   const fetchAdvice = async () => {
     setLoading(true);
     setError("");
@@ -14,6 +16,7 @@ function App() {
       const res = await fetch("https://api.adviceslip.com/advice", {
         cache: "no-cache",
       });
+      
       const data = await res.json();
       setAdvice(data.slip.advice);
     } catch (err) {
