@@ -9,7 +9,7 @@ function App() {
   const fetchAdvice = async () => {
     setLoading(true);
     setError("");
-
+    
     try {
       const res = await fetch("https://api.adviceslip.com/advice", {
         cache: "no-cache",
@@ -17,16 +17,15 @@ function App() {
       const data = await res.json();
       setAdvice(data.slip.advice);
     } catch (err) {
-      setError("Failed to reach out to the Force. Try again.");
+      setError("Failed to reach the Force. Try again.");
     } finally {
       setLoading(false);
     }
   };
 
-  useEffect() => {
-      fetchAdvice();
-    }, []);
-
+  useEffect(() => {
+    fetchAdvice();
+  }, []);
 
   return (
     <div className="App">
@@ -37,7 +36,7 @@ function App() {
       ) : error ? (
         <p>{error}</p>
       ) : (
-        <p>{advice}</p>
+        <p>"{advice}"</p>
       )}
 
       <button onClick={fetchAdvice}>Ask Again</button>
