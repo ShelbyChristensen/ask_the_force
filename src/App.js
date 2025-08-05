@@ -23,6 +23,9 @@ function App() {
     }
   };
 
+  useEffect() => {
+      fetchAdvice();
+    }, []);
 
 
   return (
