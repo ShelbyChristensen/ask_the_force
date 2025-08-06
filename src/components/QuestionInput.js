@@ -17,7 +17,7 @@ function QuestionInput({ question, setQuestion, onSubmit }) {
         value={question}
         onChange={(e) => setQuestion(e.target.value)}
       />
-      <button type="submit">Ask the Force 🔮</button>
+      <button type="submit">Help Me Decide</button>
     </form>
   );
 }

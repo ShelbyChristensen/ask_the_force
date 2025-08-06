@@ -11,9 +11,9 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const askTheForce = async () => {
+  const getDecision = async () => {
     if (!question.trim()) {
-      setError("You must ask the Force a question.");
+      setError("Please enter a question.");
       return;
     }
 
@@ -26,7 +26,7 @@ function App() {
       const data = await res.json();
       setResponse({ answer: data.answer, image: data.image });
     } catch (err) {
-      setError("Failed to reach the Force. Try again.");
+      setError("Unable to process your request. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -34,8 +34,9 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Ask the Force</h1>
-      <QuestionInput question={question} setQuestion={setQuestion} onSubmit={askTheForce} />
+      <h1>The Gentle Push</h1>
+      <p className="subtitle">A simple tool to ease decision fatigue.</p>
+      <QuestionInput question={question} setQuestion={setQuestion} onSubmit={getDecision} />
       {loading && <LoadingMessage />}
       {error && <ErrorMessage message={error} />}
       {response && <ResponseDisplay answer={response.answer} image={response.image} />}
