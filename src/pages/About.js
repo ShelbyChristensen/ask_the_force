@@ -22,7 +22,7 @@ function AboutPage() {
             <h3>How It Helps</h3>
 
 
-            <p> - Delivers simple, unbiased answers to yes/no/maybe questions - </p>
+            <p> - Delivers simple, unbiased answers to yes or no questions - </p>
             <p> - Offers encouragement when you need a boost -</p>
             <p> - Lightens the moment with a meme post answer -</p>
             <p> - Keeps an archive of your past questions -</p>
