@@ -1,24 +1,29 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import './App.css';
 
 function App() {
-  const [advice, setAdvice] = useState("");
+  const [question, setQuestion] = useState("");
+  const [response, setResponse] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const comfortingWords = ["love", "care", "kind", "listen", "peace", "help", "trust", "heart", "believe", "gentle", "hope"];
+  const askTheForce = async () => {
+    if (!question.trim()) {
+      setError("You must ask the Force a question.");
+      return;
+    }
 
-  const fetchAdvice = async () => {
     setLoading(true);
     setError("");
-    
+    setResponse(null);
+
     try {
-      const res = await fetch("https://api.adviceslip.com/advice", {
-        cache: "no-cache",
-      });
-      
+      const res = await fetch("https://yesno.wtf/api");
       const data = await res.json();
-      setAdvice(data.slip.advice);
+      setResponse({
+        answer: data.answer,
+        image: data.image
+      });
     } catch (err) {
       setError("Failed to reach the Force. Try again.");
     } finally {
@@ -26,23 +31,28 @@ function App() {
     }
   };
 
-  useEffect(() => {
-    fetchAdvice();
-  }, []);
-
   return (
     <div className="App">
       <h1>Ask the Force</h1>
 
-      {loading ? (
-        <p>The Force is listening...</p>
-      ) : error ? (
-        <p>{error}</p>
-      ) : (
-        <p>"{advice}"</p>
-      )}
+      <input
+        type="text"
+        placeholder="What is your question?"
+        value={question}
+        onChange={(e) => setQuestion(e.target.value)}
+      />
 
-      <button onClick={fetchAdvice}>Ask Again</button>
+      <button onClick={askTheForce}>Ask the Force 🔮</button>
+
+      {loading && <p>The Force is listening...</p>}
+      {error && <p className="error">{error}</p>}
+
+      {response && (
+        <div className="response">
+          <p>The Force says: <strong>{response.answer.toUpperCase()}</strong></p>
+          <img src={response.image} alt={response.answer} />
+        </div>
+      )}
     </div>
   );
 }
