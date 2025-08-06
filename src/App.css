@@ -94,3 +94,27 @@ button:hover {
   height: 1px;
   overflow: hidden;
 }
+
+/* About Page */
+.about-page {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1rem;
+  color: #f4f4f4;
+  text-align: left;
+  line-height: 1.6;
+}
+
+.about-page h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #00ffe7;
+}
+
+.about-page blockquote {
+  margin-top: 2rem;
+  font-style: italic;
+  color: #ccc;
+  border-left: 4px solid #00ffe7;
+  padding-left: 1rem;
+}

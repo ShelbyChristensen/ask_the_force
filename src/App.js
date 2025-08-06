@@ -1,46 +1,33 @@
-import { useState } from "react";
-import './App.css';
-import QuestionInput from "./components/QuestionInput";
-import ResponseDisplay from "./components/ResponseDisplay";
-import ErrorMessage from "./components/ErrorMessage";
-import LoadingMessage from "./components/LoadingMessage";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Archive from "./pages/Archive";
 
 function App() {
-  const [question, setQuestion] = useState("");
-  const [response, setResponse] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
-
-  const getDecision = async () => {
-    if (!question.trim()) {
-      setError("Please enter a question.");
-      return;
-    }
-
-    setLoading(true);
-    setError("");
-    setResponse(null);
-
-    try {
-      const res = await fetch("https://yesno.wtf/api");
-      const data = await res.json();
-      setResponse({ answer: data.answer, image: data.image });
-    } catch (err) {
-      setError("Unable to process your request. Please try again.");
-    } finally {
-      setLoading(false);
-    }
-  };
-
   return (
-    <div className="App">
-      <h1>The Gentle Push</h1>
-      <p className="subtitle">A simple tool to ease decision fatigue.</p>
-      <QuestionInput question={question} setQuestion={setQuestion} onSubmit={getDecision} />
-      {loading && <LoadingMessage />}
-      {error && <ErrorMessage message={error} />}
-      {response && <ResponseDisplay answer={response.answer} image={response.image} />}
-    </div>
+    <Router>
+      <div className="App">
+        {/* Navigation Bar */}
+        <nav style={{ margin: "1rem", textAlign: "center" }}>
+          <Link to="/" style={{ marginRight: "1rem", textDecoration: "none", color: "#00ffe7" }}>
+            Home
+          </Link>
+          <Link to="/about" style={{ marginRight: "1rem", textDecoration: "none", color: "#00ffe7" }}>
+            About
+          </Link>
+          <Link to="/archive" style={{ textDecoration: "none", color: "#00ffe7" }}>
+            Archive
+          </Link>
+        </nav>
+
+        {/* Page Routes */}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/archive" element={<Archive />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
