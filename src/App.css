@@ -103,7 +103,7 @@ button:hover {
   margin: 2rem auto;
   padding: 1rem;
   color: #333;
-  text-align: left;
+  text-align: center;
   line-height: 1.6;
   background-color: #ffffff;
   border-radius: 12px;
@@ -114,14 +114,6 @@ button:hover {
   font-size: 2rem;
   margin-bottom: 1rem;
   color: #6c63ff;
-}
-
-.about-page blockquote {
-  margin-top: 2rem;
-  font-style: italic;
-  color: #555;
-  border-left: 4px solid #6c63ff;
-  padding-left: 1rem;
 }
 
 /* Nav links */
@@ -184,18 +176,6 @@ nav a:hover {
   animation: pulse-glow 3s infinite;
 }
 
-@keyframes pulse-glow {
-  0% {
-    box-shadow: 0 0 10px #5cdb95;
-  }
-  50% {
-    box-shadow: 0 0 20px #5cdb95;
-  }
-  100% {
-    box-shadow: 0 0 10px #5cdb95;
-  }
-}
-
 
 .response-bubble:hover {
   transform: scale(1.05);
@@ -227,4 +207,41 @@ nav a:hover {
 
 .nav-link:hover {
   color: #37966f;
+}
+
+.encouragement-box {
+  margin-top: 1.5rem;
+  padding: 1rem 1.5rem;
+  background-color: #e8f0fe;
+  border-left: 5px solid #6c63ff;
+  border-radius: 8px;
+  max-width: 700px;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #333;
+  
+}
+
+.card {
+  max-width: 700px;
+  margin: rem auto;
+  padding: 5rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+.App::before {
+  content: "";
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url('https://img.favpng.com/13/8/4/8-ball-pool-magic-8-ball-eight-ball-billiards-emoji-png-favpng-vhiJ7dgTFxSwy0REFHuWAEuDK.jpg');
+  background-repeat: no-repeat;
+  background-size: 200px;
+  opacity: 0.05;
+  width: 200px;
+  height: 200px;
+  z-index: 0;
+  pointer-events: none;
 }

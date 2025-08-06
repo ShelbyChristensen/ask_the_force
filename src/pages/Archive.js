@@ -12,6 +12,7 @@ function Archive() {
 
   return (
     <div className="archive-page">
+      <div className="card">
       <h2>Archived Questions</h2>
 
       {archive.length === 0 ? (
@@ -38,6 +39,7 @@ function Archive() {
           Clear Archive
         </button>
       )}
+    </div>
     </div>
   );
 }

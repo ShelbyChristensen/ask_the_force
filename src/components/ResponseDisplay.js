@@ -13,7 +13,7 @@ function ResponseDisplay({ answer, image }) {
           className="response-image"
         />
       )}
-      <p className="note">Trust your instincts. One step at a time.</p>
+      <p className="note">A meme a day keeps the indecision away.</p>
     </div>
   );
 }
