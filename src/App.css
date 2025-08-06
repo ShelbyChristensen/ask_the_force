@@ -1,9 +1,10 @@
+/* Overall layout */
 .App {
   text-align: center;
   padding: 2rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #0d0d0d;
-  color: #ffffff;
+  background-color: #f6f9fc;
+  color: #333;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -11,40 +12,44 @@
   justify-content: center;
 }
 
+/* Heading */
 h1 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   margin-bottom: 1rem;
-  color: #00ffe7;
-  text-shadow: 0 0 10px #00ffe7, 0 0 20px #00ffe7;
+  color: #2c3e50;
 }
 
+/* Input */
 input[type="text"] {
   padding: 0.75rem;
   width: 300px;
-  border: none;
+  border: 1px solid #ccc;
   border-radius: 8px;
   font-size: 1rem;
   margin-bottom: 1rem;
-  background-color: #1a1a1a;
-  color: white;
+  background-color: #fff;
+  color: #333;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
+/* Button */
 button {
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
-  background-color: #00ffe7;
-  color: #0d0d0d;
+  background-color: #5cdb95;
+  color: #fff;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  box-shadow: 0 0 10px #00ffe7, 0 0 20px #00ffe7;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 button:hover {
-  background-color: #00ccc2;
+  background-color: #45a97e;
 }
 
+/* Response */
 .response {
   margin-top: 2rem;
 }
@@ -53,15 +58,34 @@ button:hover {
   margin-top: 1rem;
   max-width: 300px;
   border-radius: 8px;
-  box-shadow: 0 0 15px #00ffe7;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
+.response-text {
+  font-size: 1.5rem;
+  color: #2c3e50;
+}
+
+.note {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  color: #555;
+}
+
+/* Error */
 .error {
-  color: #ff6b6b;
+  color: #e74c3c;
   font-weight: bold;
   margin-top: 1rem;
 }
 
+/* Loading */
+.loading {
+  font-style: italic;
+  color: #888;
+}
+
+/* Accessibility */
 .visually-hidden {
   position: absolute;
   left: -10000px;
