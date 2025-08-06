@@ -36,5 +36,4 @@ Ask the Force is a Star Wars–themed Magic 8-Ball app built with React. Users c
     npm start
 
 ## Inspiration
-
 This project was inspired by the Magic 8-Ball, Star Wars lore, and a desire to combine creativity with interactivity. May the Force be with you
