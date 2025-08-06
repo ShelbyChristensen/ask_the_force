@@ -23,6 +23,9 @@ function App() {
     try {
       const res = await fetch("https://yesno.wtf/api");
       const data = await res.json();
+      const archive = JSON.parse(localStorage.getItem("archive")) || [];
+        archive.push({ question, answer: data.answer });
+        localStorage.setItem("archive", JSON.stringify(archive));
       setResponse({ answer: data.answer, image: data.image });
     } catch (err) {
       setError("Unable to process your request. Please try again.");
