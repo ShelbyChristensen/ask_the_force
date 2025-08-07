@@ -8,7 +8,7 @@ A supportive space to help you make decisions when your brain is tired.
 
 The Gentle Push is a calming decision-aid app designed to support users dealing with decision fatigue. You can:
 
--Ask yes/no/maybe questions
+-Ask yes/no questions
 -Get simple, randomized responses
 -Save your questions and revisit them in an archive
 -Learn about what decision fatigue is and how to cope with it
@@ -42,3 +42,10 @@ Life is full of choices and too many small decisions can wear us out. This app o
 3. Start the development server:
     npm start
 
+## API Used
+- [yesno.wtf](http://yesno.wtf)
+- Endpoint: 'http://yesno.wtf/api'
+
+## Known Issues of Challenges
+-The API occasionally returns errors or fails to load an image
+-Meme logic is dependant on external source and may break in the future

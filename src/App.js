@@ -9,7 +9,6 @@ function App() {
   return (
     <Router>
       <div className="App">
-        {/* Navigation Bar */}
         <nav className="navbar">
           <Link to="/" className="nav-link">Home</Link>
           <Link to="/about" className="nav-link">About</Link>

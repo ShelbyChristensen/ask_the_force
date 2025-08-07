@@ -4,7 +4,7 @@ import ResponseDisplay from "../components/ResponseDisplay";
 import ErrorMessage from "../components/ErrorMessage";
 import LoadingMessage from "../components/LoadingMessage";
 
-function App() {
+function Home() {
     const [question, setQuestion] = useState("");
     const [response, setResponse] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -49,7 +49,12 @@ function App() {
             if (newCount % 3 === 0) {
                 const randomMessage = encouragements[Math.floor(Math.random() * encouragements.length)];
                 setEncouragement(randomMessage);
+
+                setTimeout(() => {
+                    setEncouragement("");
+                }, 7000);
             }
+
 
         } catch (err) {
             setError("Unable to process your request. Please try again.");
@@ -59,26 +64,28 @@ function App() {
     };
 
     return (
-  <div className="App">
-    <div className="card">
-    <h1>The Gentle Push</h1>
-    <p className="subtitle">Remember the Magic 8 Ball? This is what it looks like now designed for decision-fatigued adults. Ask a yes/no question to get a <em> Gentle Push </em> towards your decision.</p>
+        <div className="App">
+            <div className="card">
+                <h1>The Gentle Push</h1>
+                <p className="subtitle">Remember the Magic 8 Ball? This is what it looks like now designed for decision-fatigued adults. Ask a yes/no question to get a <em> Gentle Push </em> towards your decision.</p>
 
-    <QuestionInput question={question} setQuestion={setQuestion} onSubmit={getDecision} />
+                <QuestionInput question={question} setQuestion={setQuestion} onSubmit={getDecision} />
 
-    {loading && <LoadingMessage />}
-    {error && <ErrorMessage message={error} />}
-    {response && <ResponseDisplay answer={response.answer} image={response.image} />}
+                {loading && <LoadingMessage />}
+                {error && <ErrorMessage message={error} />}
+                {response && <ResponseDisplay answer={response.answer} image={response.image} />}
 
-    {encouragement && (
-      <div className="encouragement-box">
-        <p>{encouragement}</p>
-      </div>
-    )}
-  </div>
-</div>
-);
+                {encouragement && (
+                    <div className="encouragement-box">
+                        <p>{encouragement}</p>
+
+                    </div>
+
+                )}
+            </div>
+        </div>
+    );
 
 }
 
-export default App;
+export default Home;

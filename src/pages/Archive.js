@@ -18,17 +18,17 @@ function Archive() {
       {archive.length === 0 ? (
         <p>No archived questions yet.</p>
       ) : (
-        <ul>
+        <p>
           {archive.map((item, index) => (
-            <li key={index}>
+            <p key={index}>
               <strong>Q:</strong> {item.question} <br />
               <strong>A:</strong> {item.answer}
-            </li>
+            </p>
           ))}
-        </ul>
+        </p>
       )}
 
-      {/* Clear Archive Button */}
+
       {archive.length > 0 && (
         <button
           onClick={() => {
